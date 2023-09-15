@@ -1,0 +1,41 @@
+  frequencies = {
+    3 => 1,
+    4 => 3,
+    5 => 6,
+    6 => 7,
+    7 => 6,
+    8 => 3,
+    9 => 1
+  }
+  p1Turn = true
+  while possibleScores.size > 0
+    for i in possibleScores.keys
+      if i[0] >= 21
+        p1Wins += possibleScores[i][2]
+        possibleScores.delete(i)
+        next
+      end
+      if i[1] >= 21
+        p2Wins += possibleScores[i][2]
+        possibleScores.delete(i)
+        next
+      end
+      if p1Turn
+        for j in 3..9
+          k = specialAdd(possibleScores[i][0], j)
+          possibleScores[[i[0] + k, i[1]]] = [k, possibleScores[i][1], possibleScores[i][2] * frequencies[j]]
+        end
+      else
+        for j in 3..9
+          k = specialAdd(possibleScores[i][1], j)
+          possibleScores[[i[0], i[1] + k]] = [possibleScores[i][0], k, possibleScores[i][2] * frequencies[j]]
+        end
+      end
+    end
+    possibleScores.delete(i)
+    #puts possibleScores
+    #break
+    puts possibleScores.size
+  end
+  puts p1Wins
+  puts p2Wins

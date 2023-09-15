@@ -1,0 +1,17 @@
+    if turnRolls != @@rollsPerTurn and p1Turn
+      oneUniverse = playGame(p1Pos + 1, p2Pos, p1Score, p2Score, true, turnRolls + 1)
+      twoUniverse = playGame(p1Pos + 2, p2Pos, p1Score, p2Score, true, turnRolls + 1)
+      threeUniverse = playGame(p1Pos + 3, p2Pos, p1Score, p2Score, true, turnRolls + 1)
+    elsif turnRolls != @@rollsPerTurn and not p1Turn
+      oneUniverse = playGame(p1Pos, p2Pos + 1, p1Score, p2Score, false, turnRolls + 1)
+      twoUniverse = playGame(p1Pos, p2Pos + 2, p1Score, p2Score, false, turnRolls + 1)
+      threeUniverse = playGame(p1Pos, p2Pos + 3, p1Score, p2Score, false, turnRolls + 1)
+    elsif turnRolls == @@rollsPerTurn and p1Turn
+      oneUniverse = playGame(p1Pos, p2Pos + 1, p1Score, p2Score, false, 1)
+      twoUniverse = playGame(p1Pos, p2Pos + 2, p1Score, p2Score, false, 1)
+      threeUniverse = playGame(p1Pos, p2Pos + 3, p1Score, p2Score, false, 1)
+    elsif turnRolls == @@rollsPerTurn and not p1Turn
+      oneUniverse = playGame(p1Pos + 1, p2Pos, p1Score, p2Score, true, 1)
+      twoUniverse = playGame(p1Pos + 2, p2Pos, p1Score, p2Score, true, 1)
+      threeUniverse = playGame(p1Pos + 3, p2Pos, p1Score, p2Score, true, 1)
+    end

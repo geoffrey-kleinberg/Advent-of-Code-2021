@@ -1,0 +1,6 @@
+16,1,2,0,4,2,7,1,2,14
+
+
+|x1 - a| + |x2 - a|... + |xn - a|
+assume they are sorted
+-x1 - x2.. - xm + xm1 + xm2.. +xn + a(2*m-n)
